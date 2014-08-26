@@ -22,7 +22,7 @@
   },
   "homepage": "https://github.com/mlogicmason/pinyin-to-zhuyin",
   "devDependencies": {
-    "lodash": "^3.0.0",
+    "lodash": "^2.4.1",
     "chai": "^1.9.1",
     "istanbul": "^0.3.0",
     "mocha": "^1.21.4"
