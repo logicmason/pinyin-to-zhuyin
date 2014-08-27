@@ -36,7 +36,8 @@ var tones = {"1":"", "2":"ˊ", "3":"ˇ", "4":"ˋ", "5":"˙"};
 
 
 var toZhuyin = function(pinyin, options) {
-  options = options || {};
+  options = options || {tones: true};
+  pinyin = pinyin || "";
   var zhuyin = p2z(pinyin.toLowerCase(), options);
   zhuyin = zhuyin.replace(/・/g, " ");  // turn ・ separators into spaces
   if (options.nbsp) {
