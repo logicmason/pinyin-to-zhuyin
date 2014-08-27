@@ -1,6 +1,12 @@
+#!/usr/bin/env node
+var cliArgs = process.argv.slice(2);
+
+var fs = require('fs');
 var _ = require('lodash');
 
-var pinyin-to-zhuyin = module.exports = function (obj) {
+var converter = module.exports = function (obj) {
   obj = obj || {};
-  this.wat = function() { console.log('wat?'); };
-}
+  console.log(obj);
+};
+
+converter(cliArgs);
