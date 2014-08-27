@@ -35,7 +35,8 @@ var bpmf = {
 var tones = {"1":"", "2":"ˊ", "3":"ˇ", "4":"ˋ", "5":"˙"};
 
 
-function toZhuyin(pinyin, options) {
+var toZhuyin = function(pinyin, options) {
+  options = options || {};
   var zhuyin = p2z(pinyin.toLowerCase(), options);
   zhuyin = zhuyin.replace(/・/g, " ");  // turn ・ separators into spaces
   if (options.nbsp) {
@@ -44,24 +45,29 @@ function toZhuyin(pinyin, options) {
   return zhuyin;
 }
 
-function z2p(zhuyin) {
+var z2p = function(zhuyin) {
   return "Not implemented";
 }
 
-function p2z(pinyin, options) {
+var p2z = function(pinyin, options) {
+  options = options || {};
+  var output = pinyin;
   for (var i = 1; i<=Object.keys(bpmf).length; i++) {
     for (var j in bpmf[i]) {
-      text = text.replace(new RegExp(bpmf[i][j],"g"), j);
+      rexp = new RegExp(bpmf[i][j],"g");
+      output = output.replace(rexp, j);
     }
   }
-  text = text.replace(/(ㄐ|ㄑ|ㄒ)ㄨ/g, "$1ㄩ") // handle ju,qu,xu words
+  output = output.replace(/(ㄐ|ㄑ|ㄒ)ㄨ/g, "$1ㄩ") // handle ju,qu,xu words
   if (options.tones) {
     for (var k = 1; k <= Object.keys(tones).length; k++) {
-      text = text.replace(new RegExp(k, "g"), tones[k]);
+      output = output.replace(new RegExp(k, "g"), tones[k]);
     }
   }
-  return text;
+  return output;
 }
 
 
 module.exports = toZhuyin;
+module.exports.bpmf = bpmf;
+module.exports.p2z = p2z;
