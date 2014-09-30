@@ -17,7 +17,7 @@ $ npm install -g .
 Pinyin to Zhuyin creates two command line utilities, `p2z` and `p2z-stream`. Internally, they use the same converter.
 
 ###p2z
-P2z takes a pinyin input file as a command line argument and then outputs the equivalent zhuyin. The included file named "test" contains the short piyin phrase—`cheng2gong1le5!`. Example usage:
+P2z takes a pinyin input file as a command line argument and then outputs the equivalent zhuyin. The included file named "test" contains the short pinyin phrase—`cheng2gong1le5!`. Example usage:
 ```
 $ p2z ./test
 ㄔㄥˊㄍㄨㄥㄌㄜ˙!
@@ -40,4 +40,4 @@ $
 ```
 
 ##Issues
-Currently, the converter cannot infer neutral tones from pinyin unless they are explicitly marked as tone 5. Ommiting the tone number as is common usage for pinyin will convert to zhuyin syllables without tone marks, why by convention denotes a first tone, not a neutral tone in zhuyin.
+Currently, the converter cannot infer neutral tones from pinyin unless they are explicitly marked as tone 5. Omitting the tone number as is common usage for pinyin will convert to zhuyin syllables without tone marks, why by convention denotes a first tone, not a neutral tone in zhuyin.
